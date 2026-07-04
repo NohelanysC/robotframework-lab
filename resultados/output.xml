@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Rebot 7.4.2 (Python 3.11.9 on win32)" generated="2026-07-04T14:59:40.115149" rpa="false" schemaversion="5">
+<suite id="s1" name="Suites">
+<suite id="s1-s1" name="Api" source="C:\Users\nohel\robotframework-labs\api">
+<suite id="s1-s1-s1" name="06 Api Tests" source="C:\Users\nohel\robotframework-labs\api\06_api_tests.robot">
+<kw name="Preparar Headers" type="SETUP">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-07-04T14:59:08.573540" level="INFO">&amp;{headers} = { x-api-key=free_user_3G3JXF9tOUNS5XQIjZNcmDS2zcz }</msg>
+<var>&amp;{headers}</var>
+<arg>x-api-key=${API_KEY}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-07-04T14:59:08.572541" elapsed="0.000999"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2026-07-04T14:59:08.573540" level="INFO">${headers} = {'x-api-key': 'free_user_3G3JXF9tOUNS5XQIjZNcmDS2zcz'}</msg>
+<arg>${headers}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2026-07-04T14:59:08.573540" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2026-07-04T14:59:08.572541" elapsed="0.000999"/>
+</kw>
+<test id="s1-s1-s1-t1" name="Obtener Lista De Usuarios" line="11">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2026-07-04T14:59:08.573540" level="INFO">Creating Session using : alias=reqres, url=https://reqres.in/api, headers={'x-api-key': 'free_user_3G3JXF9tOUNS5XQIjZNcmDS2zcz'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>reqres</arg>
+<arg>${BASE_URL}</arg>
+<arg>headers=${headers}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2026-07-04T14:59:08.573540" elapsed="0.000000"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2026-07-04T14:59:09.226929" level="INFO">GET Request : url=https://reqres.in/api/users?page=2 
+ path_url=/api/users?page=2 
+ headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'x-api-key': 'free_user_3G3JXF9tOUNS5XQIjZNcmDS2zcz'} 
+ body=None 
+ </msg>
+<msg time="2026-07-04T14:59:09.226929" level="INFO">GET Response : url=https://reqres.in/api/users?page=2 
+ status=200, reason=OK 
+ headers={'Date': 'Sat, 04 Jul 2026 19:59:11 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Cache-Control': 'public, max-age=14400, s-maxage=60', 'Cdn-Cache-Control': 'max-age=60', 'Cross-Origin-Opener-Policy': 'same-origin', 'Cross-Origin-Resource-Policy': 'same-origin', 'Etag': 'W/"5f6-+6NJQG10Gk4CkQ8jUhrGczGADWk"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Origin-Agent-Cluster': '?1', 'Ratelimit-Limit': '20', 'Ratelimit-Policy': '20;w=60', 'Ratelimit-Remaining': '19', 'Ratelimit-Reset': '60', 'Referrer-Policy': 'strict-origin-when-cross-origin', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=RimcLcO94sfgw9sdKZZa08xCjIXKInb13OIXDIHcw%2BU%3D\\u0026sid=c4c9725f-1ab0-44d8-820f-430df2718e11\\u0026ts=1783194711"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=RimcLcO94sfgw9sdKZZa08xCjIXKInb13OIXDIHcw%2BU%3D&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;ts=1783194711"', 'Server': 'cloudflare', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains', 'Via': '1.1 heroku-router', 'X-Content-Type-Options': 'nosniff', 'X-Dns-Prefetch-Control': 'off', 'X-Download-Options': 'noopen', 'X-Frame-Options': 'DENY', 'X-Permitted-Cross-Domain-Policies': 'none', 'X-Powered-By': 'ReqRes.in - Deploy backends in 30 seconds', 'X-Ratelimit-Limit': '250', 'X-Ratelimit-Remaining': '245', 'X-Ratelimit-Reset': '1783209600', 'X-Reqres-Docs': 'https://reqres.in', 'X-Reqres-Message': 'This API is powered by ReqRes. Deploy your own backend in 30 seconds!', 'X-Reqres-Templates': 'https://app.reqres.in/templates', 'X-Reqres-Tip': 'Generate a complete backend from a description - app.reqres.in/dashboard', 'X-Reqres-Trial': 'true', 'X-Reqres-Trial-Days-Remaining': '14', 'X-Reqres-Trial-Expires': '2026-07-18T19:45:57.019Z', 'X-Reqres-Upgrade': 'https://app.reqres.in/upgrade', 'X-Request-Id': '3837d7a8-e52b-f85f-c4c7-97c37044384a', 'X-Robots-Tag': 'noindex, nofollow', 'X-Xss-Protection': '0', 'Cf-Cache-Status': 'REVALIDATED', 'Content-Encoding': 'gzip', 'CF-RAY': 'a160b57cac601a45-PTY'} 
+ body={"page":2,"per_page":6,"total":12,"total_pages":2,"data":[{"id":7,"email":"michael.lawson@reqres.in","first_name":"Michael","last_name":"Lawson","avatar":"https://reqres.in/img/faces/7-image.jpg"},{"id":8,"email":"lindsay.ferguson@reqres.in","first_name":"Lindsay","last_name":"Ferguson","avatar":"https://reqres.in/img/faces/8-image.jpg"},{"id":9,"email":"tobias.funke@reqres.in","first_name":"Tobias","last_name":"Funke","avatar":"https://reqres.in/img/faces/9-image.jpg"},{"id":10,"email":"byron.fields@reqres.in","first_name":"Byron","last_name":"Fields","avatar":"https://reqres.in/img/faces/10-image.jpg"},{"id":11,"email":"george.edwards@reqres.in","first_name":"George","last_name":"Edwards","avatar":"https://reqres.in/img/faces/11-image.jpg"},{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"}],"support":{"url":"https://benhowdle.im/first-cto-playbook?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=referral","text":"Become a better CTO. A playbook of painful stories and practical advice from a two-time startup CTO."},"_meta":{"powered_by":"ReqRes","docs_url":"https://app.reqres.in/documentation","upgrade_url":"https://app.reqres.in/upgrade","example_url":"https://app.reqres.in/examples/notes-app","variant":"v1_b","message":"This is a read-only demo endpoint. Sign up to create your own collections with full CRUD and auth.","cta":{"label":"Get started","url":"https://app.reqres.in/upgrade"},"context":"legacy_success"}} 
+ </msg>
+<msg time="2026-07-04T14:59:09.226929" level="INFO">C:\Users\nohel\robotframework-labs\venv\Lib\site-packages\urllib3\connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2026-07-04T14:59:09.227924" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>reqres</arg>
+<arg>url=/users?page=2</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-07-04T14:59:08.573540" elapsed="0.654384"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2026-07-04T14:59:09.227924" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-07-04T14:59:09.228936" level="INFO">${total} = 12</msg>
+<var>${total}</var>
+<arg>${response.json()}[total]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-07-04T14:59:09.227924" elapsed="0.001012"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${total} &gt; 0</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-07-04T14:59:09.228936" elapsed="0.000994"/>
+</kw>
+<status status="PASS" start="2026-07-04T14:59:08.573540" elapsed="0.657386"/>
+</test>
+<test id="s1-s1-s1-t2" name="Crear Nuevo Usuario" line="18">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2026-07-04T14:59:09.231925" level="INFO">Creating Session using : alias=reqres, url=https://reqres.in/api, headers={'x-api-key': 'free_user_3G3JXF9tOUNS5XQIjZNcmDS2zcz'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>reqres</arg>
+<arg>${BASE_URL}</arg>
+<arg>headers=${headers}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2026-07-04T14:59:09.231925" elapsed="0.001000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-07-04T14:59:09.232925" level="INFO">&amp;{payload} = { name=Carlos | job=QA Engineer }</msg>
+<var>&amp;{payload}</var>
+<arg>name=Carlos</arg>
+<arg>job=QA Engineer</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-07-04T14:59:09.232925" elapsed="0.000000"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2026-07-04T14:59:09.722268" level="INFO">POST Request : url=https://reqres.in/api/users 
+ path_url=/api/users 
+ headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'x-api-key': 'free_user_3G3JXF9tOUNS5XQIjZNcmDS2zcz', 'Content-Length': '40', 'Content-Type': 'application/json'} 
+ body=b'{"name": "Carlos", "job": "QA Engineer"}' 
+ </msg>
+<msg time="2026-07-04T14:59:09.722268" level="INFO">POST Response : url=https://reqres.in/api/users 
+ status=201, reason=Created 
+ headers={'Date': 'Sat, 04 Jul 2026 19:59:11 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '493', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Cache-Control': 'no-store', 'Cross-Origin-Opener-Policy': 'same-origin', 'Cross-Origin-Resource-Policy': 'same-origin', 'Etag': 'W/"1ed-lJPXGF1mwOG971NKY6vrJtnDuFw"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Origin-Agent-Cluster': '?1', 'Ratelimit-Limit': '20', 'Ratelimit-Policy': '20;w=60', 'Ratelimit-Remaining': '19', 'Ratelimit-Reset': '60', 'Referrer-Policy': 'strict-origin-when-cross-origin', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=PkrnIwF78RTeB2%2Fcmohc7NIGES45fMZmkpXQtqu6Asg%3D\\u0026sid=c4c9725f-1ab0-44d8-820f-430df2718e11\\u0026ts=1783195151"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=PkrnIwF78RTeB2%2Fcmohc7NIGES45fMZmkpXQtqu6Asg%3D&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;ts=1783195151"', 'Server': 'cloudflare', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains', 'Via': '1.1 heroku-router', 'X-Content-Type-Options': 'nosniff', 'X-Dns-Prefetch-Control': 'off', 'X-Download-Options': 'noopen', 'X-Frame-Options': 'DENY', 'X-Permitted-Cross-Domain-Policies': 'none', 'X-Powered-By': 'ReqRes.in - Deploy backends in 30 seconds', 'X-Ratelimit-Limit': '250', 'X-Ratelimit-Remaining': '235', 'X-Ratelimit-Reset': '1783209600', 'X-Reqres-Docs': 'https://reqres.in', 'X-Reqres-Message': 'This API is powered by ReqRes. Deploy your own backend in 30 seconds!', 'X-Reqres-Templates': 'https://app.reqres.in/templates', 'X-Reqres-Tip': 'Build with your own data, not fixtures - app.reqres.in/dashboard', 'X-Reqres-Trial': 'true', 'X-Reqres-Trial-Days-Remaining': '14', 'X-Reqres-Trial-Expires': '2026-07-18T19:45:57.019Z', 'X-Reqres-Upgrade': 'https://app.reqres.in/upgrade', 'X-Request-Id': 'b997a2b4-9f92-3295-69e4-46f51b98b168', 'X-Robots-Tag': 'noindex, nofollow', 'X-Xss-Protection': '0', 'Cf-Cache-Status': 'DYNAMIC', 'CF-RAY': 'a160b5803d711a4a-PTY'} 
+ body={"name":"Carlos","job":"QA Engineer","id":"78","createdAt":"2026-07-04T19:59:11.692Z","_meta":{"powered_by":"ReqRes","docs_url":"https://app.reqres.in/documentation","upgrade_url":"https://app.reqres.in/upgrade","example_url":"https://app.reqres.in/examples/notes-app","variant":"v1_b","message":"This is a read-only demo endpoint. Sign up to create your own collections with full CRUD and auth.","cta":{"label":"Get started","url":"https://app.reqres.in/upgrade"},"context":"legacy_success"}} 
+ </msg>
+<msg time="2026-07-04T14:59:09.722268" level="INFO">C:\Users\nohel\robotframework-labs\venv\Lib\site-packages\urllib3\connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2026-07-04T14:59:09.722268" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>reqres</arg>
+<arg>/users</arg>
+<arg>json=${payload}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-07-04T14:59:09.232925" elapsed="0.489343"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>201</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2026-07-04T14:59:09.722268" elapsed="0.001050"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${response.json()}[name]</arg>
+<arg>Carlos</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2026-07-04T14:59:09.723318" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2026-07-04T14:59:09.230926" elapsed="0.492392"/>
+</test>
+<test id="s1-s1-s1-t3" name="Obtener Usuario Inexistente" line="25">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2026-07-04T14:59:09.724317" level="INFO">Creating Session using : alias=reqres, url=https://reqres.in/api, headers={'x-api-key': 'free_user_3G3JXF9tOUNS5XQIjZNcmDS2zcz'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>reqres</arg>
+<arg>${BASE_URL}</arg>
+<arg>headers=${headers}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2026-07-04T14:59:09.724317" elapsed="0.000000"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2026-07-04T14:59:11.851971" level="INFO">GET Request : url=https://reqres.in/api/unknown/999 
+ path_url=/api/unknown/999 
+ headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'x-api-key': 'free_user_3G3JXF9tOUNS5XQIjZNcmDS2zcz'} 
+ body=None 
+ </msg>
+<msg time="2026-07-04T14:59:11.851971" level="INFO">GET Response : url=https://reqres.in/api/unknown/999 
+ status=404, reason=Not Found 
+ headers={'Date': 'Sat, 04 Jul 2026 19:59:13 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '2', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Cache-Control': 'no-store', 'Cross-Origin-Opener-Policy': 'same-origin', 'Cross-Origin-Resource-Policy': 'same-origin', 'Etag': 'W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Origin-Agent-Cluster': '?1', 'Ratelimit-Limit': '100', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Remaining': '99', 'Ratelimit-Reset': '60', 'Referrer-Policy': 'strict-origin-when-cross-origin', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=GehuUY%2B9yateX1H42RpwbtL3xGukpciqyJ%2F05PvUeR8%3D\\u0026sid=c4c9725f-1ab0-44d8-820f-430df2718e11\\u0026ts=1783195153"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=GehuUY%2B9yateX1H42RpwbtL3xGukpciqyJ%2F05PvUeR8%3D&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;ts=1783195153"', 'Server': 'cloudflare', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains', 'Via': '1.1 heroku-router', 'X-Content-Type-Options': 'nosniff', 'X-Dns-Prefetch-Control': 'off', 'X-Download-Options': 'noopen', 'X-Frame-Options': 'DENY', 'X-Permitted-Cross-Domain-Policies': 'none', 'X-Powered-By': 'ReqRes.in - Deploy backends in 30 seconds', 'X-Ratelimit-Limit': '250', 'X-Ratelimit-Remaining': '234', 'X-Ratelimit-Reset': '1783209600', 'X-Reqres-Docs': 'https://reqres.in', 'X-Reqres-Message': 'This API is powered by ReqRes. Deploy your own backend in 30 seconds!', 'X-Reqres-Templates': 'https://app.reqres.in/templates', 'X-Reqres-Tip': 'Need more than /api/users? Build custom collections - app.reqres.in/dashboard', 'X-Reqres-Trial': 'true', 'X-Reqres-Trial-Days-Remaining': '14', 'X-Reqres-Trial-Expires': '2026-07-18T19:45:57.019Z', 'X-Reqres-Upgrade': 'https://app.reqres.in/upgrade', 'X-Request-Id': '33329114-30de-0642-4557-8b65d2adb376', 'X-Robots-Tag': 'noindex, nofollow', 'X-Xss-Protection': '0', 'Cf-Cache-Status': 'BYPASS', 'CF-RAY': 'a160b5836b491a43-PTY'} 
+ body={} 
+ </msg>
+<msg time="2026-07-04T14:59:11.852984" level="INFO">C:\Users\nohel\robotframework-labs\venv\Lib\site-packages\urllib3\connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2026-07-04T14:59:11.853970" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<var>${response}</var>
+<arg>reqres</arg>
+<arg>/unknown/999</arg>
+<arg>expected_status=404</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-07-04T14:59:09.724317" elapsed="2.129653"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>404</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2026-07-04T14:59:11.853970" elapsed="0.001004"/>
+</kw>
+<status status="PASS" start="2026-07-04T14:59:09.723318" elapsed="2.131656"/>
+</test>
+<status status="PASS" start="2026-07-04T14:59:08.387000" elapsed="3.283000"/>
+</suite>
+<status status="PASS" start="2026-07-04T14:59:08.385000" elapsed="3.283000"/>
+</suite>
+<suite id="s1-s2" name="Ui" source="C:\Users\nohel\robotframework-labs\ui">
+<suite id="s1-s2-s1" name="04 Login" source="C:\Users\nohel\robotframework-labs\ui\04_login.robot">
+<test id="s1-s2-s1-t1" name="Login Exitoso Con Usuario Valido" line="9">
+<kw name="Abrir Sitio Swag Labs">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-07-04T14:59:08.687977" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-07-04T14:59:08.686977" elapsed="5.057471"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-07-04T14:59:13.745446" elapsed="0.117413"/>
+</kw>
+<status status="PASS" start="2026-07-04T14:59:08.685978" elapsed="5.176881"/>
+</kw>
+<kw name="Iniciar Sesion">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-07-04T14:59:13.864850" level="INFO">Typing text 'standard_user' into text field 'id:user-name'.</msg>
+<arg>id:user-name</arg>
+<arg>${usuario}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-04T14:59:13.863853" elapsed="1.297018"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-07-04T14:59:15.164869" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg time="2026-07-04T14:59:15.618618" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>id:password</arg>
+<arg>${clave}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-04T14:59:15.161875" elapsed="1.029616"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-07-04T14:59:16.200738" level="INFO">Clicking button 'id:login-button'.</msg>
+<arg>id:login-button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-04T14:59:16.196132" elapsed="0.855952"/>
+</kw>
+<arg>standard_user</arg>
+<arg>secret_sauce</arg>
+<status status="PASS" start="2026-07-04T14:59:13.862859" elapsed="3.190208"/>
+</kw>
+<kw name="Verificar Login Exitoso">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Products</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-07-04T14:59:17.065069" elapsed="0.235136"/>
+</kw>
+<status status="PASS" start="2026-07-04T14:59:17.059074" elapsed="0.242148"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-07-04T14:59:17.302218" elapsed="5.685637"/>
+</kw>
+<status status="PASS" start="2026-07-04T14:59:08.685978" elapsed="14.301877"/>
+</test>
+<test id="s1-s2-s1-t2" name="Login Fallido Con Usuario Bloqueado" line="15">
+<kw name="Abrir Sitio Swag Labs">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-07-04T14:59:22.991885" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-07-04T14:59:22.990888" elapsed="2.132477"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-07-04T14:59:25.123992" elapsed="0.031086"/>
+</kw>
+<status status="PASS" start="2026-07-04T14:59:22.989887" elapsed="2.165191"/>
+</kw>
+<kw name="Iniciar Sesion">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-07-04T14:59:25.158211" level="INFO">Typing text 'locked_out_user' into text field 'id:user-name'.</msg>
+<arg>id:user-name</arg>
+<arg>${usuario}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-04T14:59:25.157210" elapsed="0.345879"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-07-04T14:59:25.507129" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg time="2026-07-04T14:59:25.574993" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>id:password</arg>
+<arg>${clave}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-04T14:59:25.505088" elapsed="0.163102"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-07-04T14:59:25.671607" level="INFO">Clicking button 'id:login-button'.</msg>
+<arg>id:login-button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-04T14:59:25.668190" elapsed="0.145097"/>
+</kw>
+<arg>locked_out_user</arg>
+<arg>secret_sauce</arg>
+<status status="PASS" start="2026-07-04T14:59:25.155078" elapsed="0.658209"/>
+</kw>
+<kw name="Verificar Mensaje De Error">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-07-04T14:59:25.857855" level="INFO">Element 'css:h3[data-test='error']' is displayed.</msg>
+<arg>css:h3[data-test='error']</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-07-04T14:59:25.815308" elapsed="0.042547"/>
+</kw>
+<status status="PASS" start="2026-07-04T14:59:25.814310" elapsed="0.044548"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-07-04T14:59:25.858858" elapsed="3.403490"/>
+</kw>
+<status status="PASS" start="2026-07-04T14:59:22.988889" elapsed="6.274530"/>
+</test>
+<status status="PASS" start="2026-07-04T14:59:08.394858" elapsed="20.870472"/>
+</suite>
+<suite id="s1-s2-s2" name="05 Login Ddt" source="C:\Users\nohel\robotframework-labs\ui\05_login_ddt.robot">
+<kw name="Open Browser" owner="SeleniumLibrary" type="SETUP">
+<msg time="2026-07-04T14:59:13.093982" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com'.</msg>
+<arg>https://www.saucedemo.com</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-07-04T14:59:13.093982" elapsed="4.589311"/>
+</kw>
+<test id="s1-s2-s2-t1" name="Usuario estandar" line="9">
+<kw name="Validar Intento De Login">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-07-04T14:59:17.686298" level="INFO">Opening url 'https://www.saucedemo.com'</msg>
+<arg>https://www.saucedemo.com</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-07-04T14:59:17.685289" elapsed="0.061549"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id:user-name</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-07-04T14:59:17.746838" elapsed="0.135398"/>
+</kw>
+<kw name="Ingresar Credenciales" owner="login_page">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-07-04T14:59:17.884306" level="INFO">Typing text 'standard_user' into text field 'id:user-name'.</msg>
+<arg>${INPUT_USER}</arg>
+<arg>${usuario}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-04T14:59:17.883307" elapsed="0.202702"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-07-04T14:59:18.089009" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg time="2026-07-04T14:59:18.132786" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${INPUT_PASS}</arg>
+<arg>${clave}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-04T14:59:18.087010" elapsed="0.142145"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-07-04T14:59:18.230160" level="INFO">Clicking button 'id:login-button'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-04T14:59:18.229155" elapsed="0.168872"/>
+</kw>
+<arg>${usuario}</arg>
+<arg>${clave}</arg>
+<status status="PASS" start="2026-07-04T14:59:17.882236" elapsed="0.516367"/>
+</kw>
+<if>
+<branch type="IF" condition="'${resultado}' == 'exito'">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Products</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-07-04T14:59:18.399294" elapsed="0.020759"/>
+</kw>
+<status status="PASS" start="2026-07-04T14:59:18.398603" elapsed="0.022060"/>
+</branch>
+<branch type="ELSE">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css:h3[data-test='error']</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-07-04T14:59:18.421235" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-07-04T14:59:18.420663" elapsed="0.000572"/>
+</branch>
+<status status="PASS" start="2026-07-04T14:59:18.398603" elapsed="0.022632"/>
+</if>
+<arg>standard_user</arg>
+<arg>secret_sauce</arg>
+<arg>exito</arg>
+<status status="PASS" start="2026-07-04T14:59:17.684293" elapsed="0.736942"/>
+</kw>
+<status status="PASS" start="2026-07-04T14:59:17.683293" elapsed="0.738511"/>
+</test>
+<test id="s1-s2-s2-t2" name="Usuario bloqueado" line="10">
+<kw name="Validar Intento De Login">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-07-04T14:59:18.423954" level="INFO">Opening url 'https://www.saucedemo.com'</msg>
+<arg>https://www.saucedemo.com</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-07-04T14:59:18.423954" elapsed="0.065402"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id:user-name</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-07-04T14:59:18.489356" elapsed="0.025069"/>
+</kw>
+<kw name="Ingresar Credenciales" owner="login_page">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-07-04T14:59:18.516980" level="INFO">Typing text 'locked_out_user' into text field 'id:user-name'.</msg>
+<arg>${INPUT_USER}</arg>
+<arg>${usuario}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-04T14:59:18.515945" elapsed="0.144392"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-07-04T14:59:18.661335" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg time="2026-07-04T14:59:18.705619" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${INPUT_PASS}</arg>
+<arg>${clave}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-04T14:59:18.660337" elapsed="0.138407"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-07-04T14:59:18.799747" level="INFO">Clicking button 'id:login-button'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-04T14:59:18.798744" elapsed="0.095906"/>
+</kw>
+<arg>${usuario}</arg>
+<arg>${clave}</arg>
+<status status="PASS" start="2026-07-04T14:59:18.514425" elapsed="0.380225"/>
+</kw>
+<if>
+<branch type="IF" condition="'${resultado}' == 'exito'">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Products</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="NOT RUN" start="2026-07-04T14:59:18.895641" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-07-04T14:59:18.895641" elapsed="0.000000"/>
+</branch>
+<branch type="ELSE">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css:h3[data-test='error']</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-07-04T14:59:18.896641" elapsed="0.023611"/>
+</kw>
+<status status="PASS" start="2026-07-04T14:59:18.895641" elapsed="0.024611"/>
+</branch>
+<status status="PASS" start="2026-07-04T14:59:18.895641" elapsed="0.024611"/>
+</if>
+<arg>locked_out_user</arg>
+<arg>secret_sauce</arg>
+<arg>error</arg>
+<status status="PASS" start="2026-07-04T14:59:18.422937" elapsed="0.497315"/>
+</kw>
+<status status="PASS" start="2026-07-04T14:59:18.422366" elapsed="0.498895"/>
+</test>
+<test id="s1-s2-s2-t3" name="Clave incorrecta" line="11">
+<kw name="Validar Intento De Login">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-07-04T14:59:18.922260" level="INFO">Opening url 'https://www.saucedemo.com'</msg>
+<arg>https://www.saucedemo.com</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-07-04T14:59:18.922260" elapsed="0.072583"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id:user-name</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-07-04T14:59:18.994843" elapsed="0.059592"/>
+</kw>
+<kw name="Ingresar Credenciales" owner="login_page">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-07-04T14:59:19.056437" level="INFO">Typing text 'standard_user' into text field 'id:user-name'.</msg>
+<arg>${INPUT_USER}</arg>
+<arg>${usuario}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-04T14:59:19.056437" elapsed="0.124804"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-07-04T14:59:19.182248" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg time="2026-07-04T14:59:19.222692" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${INPUT_PASS}</arg>
+<arg>${clave}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-04T14:59:19.182248" elapsed="0.112870"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-07-04T14:59:19.295118" level="INFO">Clicking button 'id:login-button'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-04T14:59:19.295118" elapsed="0.072672"/>
+</kw>
+<arg>${usuario}</arg>
+<arg>${clave}</arg>
+<status status="PASS" start="2026-07-04T14:59:19.055443" elapsed="0.313323"/>
+</kw>
+<if>
+<branch type="IF" condition="'${resultado}' == 'exito'">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Products</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="NOT RUN" start="2026-07-04T14:59:19.368766" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-07-04T14:59:19.368766" elapsed="0.000000"/>
+</branch>
+<branch type="ELSE">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2026-07-04T14:59:29.532467" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="20260704_145907-2-selenium-screenshot-1.png"&gt;&lt;img src="20260704_145907-2-selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-07-04T14:59:29.532467" level="FAIL">Element 'css:h3[data-test='error']' not visible after 10 seconds.</msg>
+<arg>css:h3[data-test='error']</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2026-07-04T14:59:19.368766" elapsed="10.474402">Element 'css:h3[data-test='error']' not visible after 10 seconds.</status>
+</kw>
+<status status="FAIL" start="2026-07-04T14:59:19.368766" elapsed="10.475411">Element 'css:h3[data-test='error']' not visible after 10 seconds.</status>
+</branch>
+<status status="FAIL" start="2026-07-04T14:59:19.368766" elapsed="10.476405">Element 'css:h3[data-test='error']' not visible after 10 seconds.</status>
+</if>
+<arg>standard_user</arg>
+<arg>clave_invalida</arg>
+<arg>error</arg>
+<status status="FAIL" start="2026-07-04T14:59:18.921261" elapsed="10.924917">Element 'css:h3[data-test='error']' not visible after 10 seconds.</status>
+</kw>
+<status status="FAIL" start="2026-07-04T14:59:18.921261" elapsed="10.925915">Element 'css:h3[data-test='error']' not visible after 10 seconds.</status>
+</test>
+<test id="s1-s2-s2-t4" name="Usuario vacio" line="12">
+<kw name="Validar Intento De Login">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-07-04T14:59:29.860195" level="INFO">Opening url 'https://www.saucedemo.com'</msg>
+<arg>https://www.saucedemo.com</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-07-04T14:59:29.859160" elapsed="0.301623"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id:user-name</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-07-04T14:59:30.161767" elapsed="0.048632"/>
+</kw>
+<kw name="Ingresar Credenciales" owner="login_page">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-07-04T14:59:30.212926" level="INFO">Typing text '' into text field 'id:user-name'.</msg>
+<arg>${INPUT_USER}</arg>
+<arg>${usuario}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-04T14:59:30.211911" elapsed="0.201958"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-07-04T14:59:30.415872" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg time="2026-07-04T14:59:30.497466" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${INPUT_PASS}</arg>
+<arg>${clave}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-04T14:59:30.414870" elapsed="0.220352"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-07-04T14:59:30.638216" level="INFO">Clicking button 'id:login-button'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-04T14:59:30.636214" elapsed="0.169123"/>
+</kw>
+<arg>${usuario}</arg>
+<arg>${clave}</arg>
+<status status="PASS" start="2026-07-04T14:59:30.210399" elapsed="0.594938"/>
+</kw>
+<if>
+<branch type="IF" condition="'${resultado}' == 'exito'">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Products</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="NOT RUN" start="2026-07-04T14:59:30.806359" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-07-04T14:59:30.805337" elapsed="0.001022"/>
+</branch>
+<branch type="ELSE">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css:h3[data-test='error']</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-07-04T14:59:30.806359" elapsed="0.034157"/>
+</kw>
+<status status="PASS" start="2026-07-04T14:59:30.806359" elapsed="0.035156"/>
+</branch>
+<status status="PASS" start="2026-07-04T14:59:30.805337" elapsed="0.036178"/>
+</if>
+<arg>${EMPTY}</arg>
+<arg>secret_sauce</arg>
+<arg>error</arg>
+<status status="PASS" start="2026-07-04T14:59:29.856183" elapsed="0.985332"/>
+</kw>
+<status status="PASS" start="2026-07-04T14:59:29.850183" elapsed="0.991332"/>
+</test>
+<test id="s1-s2-s2-t5" name="Agregar Producto Al Carrito" line="14">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-07-04T14:59:30.844519" level="INFO">Opening url 'https://www.saucedemo.com'</msg>
+<arg>https://www.saucedemo.com</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-07-04T14:59:30.843516" elapsed="0.136467"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id:user-name</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-07-04T14:59:30.980981" elapsed="0.048790"/>
+</kw>
+<kw name="Ingresar Credenciales" owner="login_page">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-07-04T14:59:31.031768" level="INFO">Typing text 'standard_user' into text field 'id:user-name'.</msg>
+<arg>${INPUT_USER}</arg>
+<arg>${usuario}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-04T14:59:31.030767" elapsed="0.228377"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-07-04T14:59:31.261296" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg time="2026-07-04T14:59:31.327573" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${INPUT_PASS}</arg>
+<arg>${clave}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-04T14:59:31.260270" elapsed="0.228040"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-07-04T14:59:31.489310" level="INFO">Clicking button 'id:login-button'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-04T14:59:31.488310" elapsed="0.257999"/>
+</kw>
+<arg>standard_user</arg>
+<arg>secret_sauce</arg>
+<status status="PASS" start="2026-07-04T14:59:31.029771" elapsed="0.717124"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Products</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-07-04T14:59:31.746895" elapsed="0.020072"/>
+</kw>
+<kw name="Agregar Mochila Al Carrito">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-07-04T14:59:31.768503" level="INFO">Clicking button 'id:add-to-cart-sauce-labs-backpack'.</msg>
+<arg>id:add-to-cart-sauce-labs-backpack</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-04T14:59:31.768503" elapsed="0.206514"/>
+</kw>
+<status status="PASS" start="2026-07-04T14:59:31.767991" elapsed="0.207026"/>
+</kw>
+<kw name="Verificar Contador Del Carrito">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css:span.shopping_cart_badge</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-07-04T14:59:31.976543" elapsed="0.050915"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2026-07-04T14:59:32.028459" level="INFO">Verifying element 'css:span.shopping_cart_badge' contains exact text '1'.</msg>
+<arg>css:span.shopping_cart_badge</arg>
+<arg>${cantidad_esperada}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2026-07-04T14:59:32.028459" elapsed="0.050184"/>
+</kw>
+<arg>1</arg>
+<status status="PASS" start="2026-07-04T14:59:31.975017" elapsed="0.103626"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-07-04T14:59:37.080068" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-07-04T14:59:32.078643" elapsed="5.001425"/>
+</kw>
+<status status="PASS" start="2026-07-04T14:59:30.842516" elapsed="6.238598"/>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-07-04T14:59:37.083148" elapsed="2.448973"/>
+</kw>
+<status status="FAIL" start="2026-07-04T14:59:12.821737" elapsed="26.710384"/>
+</suite>
+<status status="FAIL" start="2026-07-04T14:59:08.393000" elapsed="47.581000"/>
+</suite>
+<status status="FAIL" start="2026-07-04T14:59:08.354000" elapsed="31.182000"/>
+</suite>
+<statistics>
+<total>
+<stat pass="9" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Suites" id="s1" pass="9" fail="1" skip="0">Suites</stat>
+<stat name="Api" id="s1-s1" pass="3" fail="0" skip="0">Suites.Api</stat>
+<stat name="06 Api Tests" id="s1-s1-s1" pass="3" fail="0" skip="0">Suites.Api.06 Api Tests</stat>
+<stat name="Ui" id="s1-s2" pass="6" fail="1" skip="0">Suites.Ui</stat>
+<stat name="04 Login" id="s1-s2-s1" pass="2" fail="0" skip="0">Suites.Ui.04 Login</stat>
+<stat name="05 Login Ddt" id="s1-s2-s2" pass="4" fail="1" skip="0">Suites.Ui.05 Login Ddt</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

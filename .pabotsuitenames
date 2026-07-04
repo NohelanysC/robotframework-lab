@@ -1,0 +1,7 @@
+datasources:6fcbcfa7370825883ae5ab61f5e85bd3f9981e2b
+commandlineoptions:9f8598a690c7367accf83ead504756ddd374acc9
+suitesfrom:no-suites-from-option
+file:afe5302e74ed014fb02720c7913dadb0046cc73c
+--suite Suites.Api.06 Api Tests
+--suite Suites.Ui.04 Login
+--suite Suites.Ui.05 Login Ddt

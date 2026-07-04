@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.11.9 on win32)" generated="2026-07-04T14:59:08.353729" rpa="false" schemaversion="5">
+<suite id="s1" name="Suites">
+<suite id="s1-s1" name="Api" source="C:\Users\nohel\robotframework-labs\api">
+<suite id="s1-s1-s1" name="06 Api Tests" source="C:\Users\nohel\robotframework-labs\api\06_api_tests.robot">
+<kw name="Preparar Headers" type="SETUP">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-07-04T14:59:08.573540" level="INFO">&amp;{headers} = { x-api-key=free_user_3G3JXF9tOUNS5XQIjZNcmDS2zcz }</msg>
+<var>&amp;{headers}</var>
+<arg>x-api-key=${API_KEY}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-07-04T14:59:08.572541" elapsed="0.000999"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2026-07-04T14:59:08.573540" level="INFO">${headers} = {'x-api-key': 'free_user_3G3JXF9tOUNS5XQIjZNcmDS2zcz'}</msg>
+<arg>${headers}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2026-07-04T14:59:08.573540" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2026-07-04T14:59:08.572541" elapsed="0.000999"/>
+</kw>
+<test id="s1-s1-s1-t1" name="Obtener Lista De Usuarios" line="11">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2026-07-04T14:59:08.573540" level="INFO">Creating Session using : alias=reqres, url=https://reqres.in/api, headers={'x-api-key': 'free_user_3G3JXF9tOUNS5XQIjZNcmDS2zcz'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>reqres</arg>
+<arg>${BASE_URL}</arg>
+<arg>headers=${headers}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2026-07-04T14:59:08.573540" elapsed="0.000000"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2026-07-04T14:59:09.226929" level="INFO">GET Request : url=https://reqres.in/api/users?page=2 
+ path_url=/api/users?page=2 
+ headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'x-api-key': 'free_user_3G3JXF9tOUNS5XQIjZNcmDS2zcz'} 
+ body=None 
+ </msg>
+<msg time="2026-07-04T14:59:09.226929" level="INFO">GET Response : url=https://reqres.in/api/users?page=2 
+ status=200, reason=OK 
+ headers={'Date': 'Sat, 04 Jul 2026 19:59:11 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Cache-Control': 'public, max-age=14400, s-maxage=60', 'Cdn-Cache-Control': 'max-age=60', 'Cross-Origin-Opener-Policy': 'same-origin', 'Cross-Origin-Resource-Policy': 'same-origin', 'Etag': 'W/"5f6-+6NJQG10Gk4CkQ8jUhrGczGADWk"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Origin-Agent-Cluster': '?1', 'Ratelimit-Limit': '20', 'Ratelimit-Policy': '20;w=60', 'Ratelimit-Remaining': '19', 'Ratelimit-Reset': '60', 'Referrer-Policy': 'strict-origin-when-cross-origin', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=RimcLcO94sfgw9sdKZZa08xCjIXKInb13OIXDIHcw%2BU%3D\\u0026sid=c4c9725f-1ab0-44d8-820f-430df2718e11\\u0026ts=1783194711"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=RimcLcO94sfgw9sdKZZa08xCjIXKInb13OIXDIHcw%2BU%3D&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;ts=1783194711"', 'Server': 'cloudflare', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains', 'Via': '1.1 heroku-router', 'X-Content-Type-Options': 'nosniff', 'X-Dns-Prefetch-Control': 'off', 'X-Download-Options': 'noopen', 'X-Frame-Options': 'DENY', 'X-Permitted-Cross-Domain-Policies': 'none', 'X-Powered-By': 'ReqRes.in - Deploy backends in 30 seconds', 'X-Ratelimit-Limit': '250', 'X-Ratelimit-Remaining': '245', 'X-Ratelimit-Reset': '1783209600', 'X-Reqres-Docs': 'https://reqres.in', 'X-Reqres-Message': 'This API is powered by ReqRes. Deploy your own backend in 30 seconds!', 'X-Reqres-Templates': 'https://app.reqres.in/templates', 'X-Reqres-Tip': 'Generate a complete backend from a description - app.reqres.in/dashboard', 'X-Reqres-Trial': 'true', 'X-Reqres-Trial-Days-Remaining': '14', 'X-Reqres-Trial-Expires': '2026-07-18T19:45:57.019Z', 'X-Reqres-Upgrade': 'https://app.reqres.in/upgrade', 'X-Request-Id': '3837d7a8-e52b-f85f-c4c7-97c37044384a', 'X-Robots-Tag': 'noindex, nofollow', 'X-Xss-Protection': '0', 'Cf-Cache-Status': 'REVALIDATED', 'Content-Encoding': 'gzip', 'CF-RAY': 'a160b57cac601a45-PTY'} 
+ body={"page":2,"per_page":6,"total":12,"total_pages":2,"data":[{"id":7,"email":"michael.lawson@reqres.in","first_name":"Michael","last_name":"Lawson","avatar":"https://reqres.in/img/faces/7-image.jpg"},{"id":8,"email":"lindsay.ferguson@reqres.in","first_name":"Lindsay","last_name":"Ferguson","avatar":"https://reqres.in/img/faces/8-image.jpg"},{"id":9,"email":"tobias.funke@reqres.in","first_name":"Tobias","last_name":"Funke","avatar":"https://reqres.in/img/faces/9-image.jpg"},{"id":10,"email":"byron.fields@reqres.in","first_name":"Byron","last_name":"Fields","avatar":"https://reqres.in/img/faces/10-image.jpg"},{"id":11,"email":"george.edwards@reqres.in","first_name":"George","last_name":"Edwards","avatar":"https://reqres.in/img/faces/11-image.jpg"},{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"}],"support":{"url":"https://benhowdle.im/first-cto-playbook?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=referral","text":"Become a better CTO. A playbook of painful stories and practical advice from a two-time startup CTO."},"_meta":{"powered_by":"ReqRes","docs_url":"https://app.reqres.in/documentation","upgrade_url":"https://app.reqres.in/upgrade","example_url":"https://app.reqres.in/examples/notes-app","variant":"v1_b","message":"This is a read-only demo endpoint. Sign up to create your own collections with full CRUD and auth.","cta":{"label":"Get started","url":"https://app.reqres.in/upgrade"},"context":"legacy_success"}} 
+ </msg>
+<msg time="2026-07-04T14:59:09.226929" level="INFO">C:\Users\nohel\robotframework-labs\venv\Lib\site-packages\urllib3\connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2026-07-04T14:59:09.227924" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>reqres</arg>
+<arg>url=/users?page=2</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-07-04T14:59:08.573540" elapsed="0.654384"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2026-07-04T14:59:09.227924" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-07-04T14:59:09.228936" level="INFO">${total} = 12</msg>
+<var>${total}</var>
+<arg>${response.json()}[total]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-07-04T14:59:09.227924" elapsed="0.001012"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${total} &gt; 0</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-07-04T14:59:09.228936" elapsed="0.000994"/>
+</kw>
+<status status="PASS" start="2026-07-04T14:59:08.573540" elapsed="0.657386"/>
+</test>
+<test id="s1-s1-s1-t2" name="Crear Nuevo Usuario" line="18">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2026-07-04T14:59:09.231925" level="INFO">Creating Session using : alias=reqres, url=https://reqres.in/api, headers={'x-api-key': 'free_user_3G3JXF9tOUNS5XQIjZNcmDS2zcz'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>reqres</arg>
+<arg>${BASE_URL}</arg>
+<arg>headers=${headers}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2026-07-04T14:59:09.231925" elapsed="0.001000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-07-04T14:59:09.232925" level="INFO">&amp;{payload} = { name=Carlos | job=QA Engineer }</msg>
+<var>&amp;{payload}</var>
+<arg>name=Carlos</arg>
+<arg>job=QA Engineer</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-07-04T14:59:09.232925" elapsed="0.000000"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2026-07-04T14:59:09.722268" level="INFO">POST Request : url=https://reqres.in/api/users 
+ path_url=/api/users 
+ headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'x-api-key': 'free_user_3G3JXF9tOUNS5XQIjZNcmDS2zcz', 'Content-Length': '40', 'Content-Type': 'application/json'} 
+ body=b'{"name": "Carlos", "job": "QA Engineer"}' 
+ </msg>
+<msg time="2026-07-04T14:59:09.722268" level="INFO">POST Response : url=https://reqres.in/api/users 
+ status=201, reason=Created 
+ headers={'Date': 'Sat, 04 Jul 2026 19:59:11 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '493', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Cache-Control': 'no-store', 'Cross-Origin-Opener-Policy': 'same-origin', 'Cross-Origin-Resource-Policy': 'same-origin', 'Etag': 'W/"1ed-lJPXGF1mwOG971NKY6vrJtnDuFw"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Origin-Agent-Cluster': '?1', 'Ratelimit-Limit': '20', 'Ratelimit-Policy': '20;w=60', 'Ratelimit-Remaining': '19', 'Ratelimit-Reset': '60', 'Referrer-Policy': 'strict-origin-when-cross-origin', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=PkrnIwF78RTeB2%2Fcmohc7NIGES45fMZmkpXQtqu6Asg%3D\\u0026sid=c4c9725f-1ab0-44d8-820f-430df2718e11\\u0026ts=1783195151"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=PkrnIwF78RTeB2%2Fcmohc7NIGES45fMZmkpXQtqu6Asg%3D&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;ts=1783195151"', 'Server': 'cloudflare', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains', 'Via': '1.1 heroku-router', 'X-Content-Type-Options': 'nosniff', 'X-Dns-Prefetch-Control': 'off', 'X-Download-Options': 'noopen', 'X-Frame-Options': 'DENY', 'X-Permitted-Cross-Domain-Policies': 'none', 'X-Powered-By': 'ReqRes.in - Deploy backends in 30 seconds', 'X-Ratelimit-Limit': '250', 'X-Ratelimit-Remaining': '235', 'X-Ratelimit-Reset': '1783209600', 'X-Reqres-Docs': 'https://reqres.in', 'X-Reqres-Message': 'This API is powered by ReqRes. Deploy your own backend in 30 seconds!', 'X-Reqres-Templates': 'https://app.reqres.in/templates', 'X-Reqres-Tip': 'Build with your own data, not fixtures - app.reqres.in/dashboard', 'X-Reqres-Trial': 'true', 'X-Reqres-Trial-Days-Remaining': '14', 'X-Reqres-Trial-Expires': '2026-07-18T19:45:57.019Z', 'X-Reqres-Upgrade': 'https://app.reqres.in/upgrade', 'X-Request-Id': 'b997a2b4-9f92-3295-69e4-46f51b98b168', 'X-Robots-Tag': 'noindex, nofollow', 'X-Xss-Protection': '0', 'Cf-Cache-Status': 'DYNAMIC', 'CF-RAY': 'a160b5803d711a4a-PTY'} 
+ body={"name":"Carlos","job":"QA Engineer","id":"78","createdAt":"2026-07-04T19:59:11.692Z","_meta":{"powered_by":"ReqRes","docs_url":"https://app.reqres.in/documentation","upgrade_url":"https://app.reqres.in/upgrade","example_url":"https://app.reqres.in/examples/notes-app","variant":"v1_b","message":"This is a read-only demo endpoint. Sign up to create your own collections with full CRUD and auth.","cta":{"label":"Get started","url":"https://app.reqres.in/upgrade"},"context":"legacy_success"}} 
+ </msg>
+<msg time="2026-07-04T14:59:09.722268" level="INFO">C:\Users\nohel\robotframework-labs\venv\Lib\site-packages\urllib3\connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2026-07-04T14:59:09.722268" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>reqres</arg>
+<arg>/users</arg>
+<arg>json=${payload}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-07-04T14:59:09.232925" elapsed="0.489343"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>201</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2026-07-04T14:59:09.722268" elapsed="0.001050"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${response.json()}[name]</arg>
+<arg>Carlos</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2026-07-04T14:59:09.723318" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2026-07-04T14:59:09.230926" elapsed="0.492392"/>
+</test>
+<test id="s1-s1-s1-t3" name="Obtener Usuario Inexistente" line="25">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2026-07-04T14:59:09.724317" level="INFO">Creating Session using : alias=reqres, url=https://reqres.in/api, headers={'x-api-key': 'free_user_3G3JXF9tOUNS5XQIjZNcmDS2zcz'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>reqres</arg>
+<arg>${BASE_URL}</arg>
+<arg>headers=${headers}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2026-07-04T14:59:09.724317" elapsed="0.000000"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2026-07-04T14:59:11.851971" level="INFO">GET Request : url=https://reqres.in/api/unknown/999 
+ path_url=/api/unknown/999 
+ headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'x-api-key': 'free_user_3G3JXF9tOUNS5XQIjZNcmDS2zcz'} 
+ body=None 
+ </msg>
+<msg time="2026-07-04T14:59:11.851971" level="INFO">GET Response : url=https://reqres.in/api/unknown/999 
+ status=404, reason=Not Found 
+ headers={'Date': 'Sat, 04 Jul 2026 19:59:13 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '2', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Cache-Control': 'no-store', 'Cross-Origin-Opener-Policy': 'same-origin', 'Cross-Origin-Resource-Policy': 'same-origin', 'Etag': 'W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Origin-Agent-Cluster': '?1', 'Ratelimit-Limit': '100', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Remaining': '99', 'Ratelimit-Reset': '60', 'Referrer-Policy': 'strict-origin-when-cross-origin', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=GehuUY%2B9yateX1H42RpwbtL3xGukpciqyJ%2F05PvUeR8%3D\\u0026sid=c4c9725f-1ab0-44d8-820f-430df2718e11\\u0026ts=1783195153"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=GehuUY%2B9yateX1H42RpwbtL3xGukpciqyJ%2F05PvUeR8%3D&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;ts=1783195153"', 'Server': 'cloudflare', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains', 'Via': '1.1 heroku-router', 'X-Content-Type-Options': 'nosniff', 'X-Dns-Prefetch-Control': 'off', 'X-Download-Options': 'noopen', 'X-Frame-Options': 'DENY', 'X-Permitted-Cross-Domain-Policies': 'none', 'X-Powered-By': 'ReqRes.in - Deploy backends in 30 seconds', 'X-Ratelimit-Limit': '250', 'X-Ratelimit-Remaining': '234', 'X-Ratelimit-Reset': '1783209600', 'X-Reqres-Docs': 'https://reqres.in', 'X-Reqres-Message': 'This API is powered by ReqRes. Deploy your own backend in 30 seconds!', 'X-Reqres-Templates': 'https://app.reqres.in/templates', 'X-Reqres-Tip': 'Need more than /api/users? Build custom collections - app.reqres.in/dashboard', 'X-Reqres-Trial': 'true', 'X-Reqres-Trial-Days-Remaining': '14', 'X-Reqres-Trial-Expires': '2026-07-18T19:45:57.019Z', 'X-Reqres-Upgrade': 'https://app.reqres.in/upgrade', 'X-Request-Id': '33329114-30de-0642-4557-8b65d2adb376', 'X-Robots-Tag': 'noindex, nofollow', 'X-Xss-Protection': '0', 'Cf-Cache-Status': 'BYPASS', 'CF-RAY': 'a160b5836b491a43-PTY'} 
+ body={} 
+ </msg>
+<msg time="2026-07-04T14:59:11.852984" level="INFO">C:\Users\nohel\robotframework-labs\venv\Lib\site-packages\urllib3\connectionpool.py:1110: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2026-07-04T14:59:11.853970" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<var>${response}</var>
+<arg>reqres</arg>
+<arg>/unknown/999</arg>
+<arg>expected_status=404</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-07-04T14:59:09.724317" elapsed="2.129653"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>404</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2026-07-04T14:59:11.853970" elapsed="0.001004"/>
+</kw>
+<status status="PASS" start="2026-07-04T14:59:09.723318" elapsed="2.131656"/>
+</test>
+<status status="PASS" start="2026-07-04T14:59:08.387851" elapsed="3.468134"/>
+</suite>
+<status status="PASS" start="2026-07-04T14:59:08.385850" elapsed="3.473129"/>
+</suite>
+<status status="PASS" start="2026-07-04T14:59:08.354885" elapsed="3.506097"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Suites" id="s1" pass="3" fail="0" skip="0">Suites</stat>
+<stat name="Api" id="s1-s1" pass="3" fail="0" skip="0">Suites.Api</stat>
+<stat name="06 Api Tests" id="s1-s1-s1" pass="3" fail="0" skip="0">Suites.Api.06 Api Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
